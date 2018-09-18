@@ -9,7 +9,7 @@
 <% end %>
 
 <% unless @genre.songs.empty? %>
-  <p>Average Song Rating: <%= @genre.avg_song_rating %></p>
+  <p>Average Song Rating: <%= @genre.avg_song_rating.round(2) %></p>
   <p>Song with highest rating: <%= @genre.highest_rated.title %> with a rating of <%= @genre.highest_rated.rating %></p>
   <p>Song with lowest rating: <%= @genre.lowest_rated.title %> with a rating of <%= @genre.lowest_rated.rating %></p>
 <% end %>

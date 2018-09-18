@@ -4,7 +4,7 @@ class Genre < ApplicationRecord
   has_many :songs, through: :song_genres
 
   def avg_song_rating
-    songs.average(:rating).round(2)
+    songs.average(:rating).to_f
   end
 
   def highest_rated

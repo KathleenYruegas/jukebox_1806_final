@@ -21,7 +21,7 @@ describe "As a visitor" do
       expect(page).to have_content(song_3.title)
       expect(page).to_not have_content(song_4.title)
 
-      expect(page).to have_content("Average Song Rating: #{genre.avg_song_rating}")
+      expect(page).to have_content("Average Song Rating: #{genre.avg_song_rating.round(2)}")
       expect(page).to have_content("Song with highest rating: #{song_3.title} with a rating of #{song_3.rating}")
       expect(page).to have_content("Song with lowest rating: #{song_2.title} with a rating of #{song_2.rating}")
     end

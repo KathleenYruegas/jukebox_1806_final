@@ -24,7 +24,7 @@ describe Genre, type: :model do
     end
     context '#avg_song_rating' do
       it 'should return an average rating of all songs in this genre' do
-        expect(@genre.avg_song_rating).to eq(((@song_1.rating + @song_2.rating + @song_3.rating) / @genre.songs.count.to_f).round(2))
+        expect(@genre.avg_song_rating).to eq(((@song_1.rating + @song_2.rating + @song_3.rating) / @genre.songs.count.to_f))
       end
     end
     context '#highest_rated' do
