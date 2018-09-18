@@ -6,5 +6,6 @@ class GenresController < ApplicationController
 
   def show
     @genre = Genre.find(params[:id])
+    @show_info = @genre.show_info unless @genre.songs.empty?
   end
 end

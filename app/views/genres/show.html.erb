@@ -2,14 +2,16 @@
 
 <h3>Songs under this Genre: </h3>
 
-<% @genre.songs.each do |song| %>
-  <ul>
-    <li><%= song.title %></li>
-  </ul>
-<% end %>
-
 <% unless @genre.songs.empty? %>
-  <p>Average Song Rating: <%= @genre.avg_song_rating.round(2) %></p>
-  <p>Song with highest rating: <%= @genre.highest_rated.title %> with a rating of <%= @genre.highest_rated.rating %></p>
-  <p>Song with lowest rating: <%= @genre.lowest_rated.title %> with a rating of <%= @genre.lowest_rated.rating %></p>
+  <% @genre.songs.each do |song| %>
+    <ul>
+      <li><%= song.title %></li>
+    </ul>
+  <% end %>
+
+  <p>Average Song Rating: <%= @show_info[:avg_song_rating].round(2) %></p>
+  <p>Song with highest rating: <%= @show_info[:highest_rated][:title] %> with a rating of <%= @show_info[:highest_rated][:rating] %></p>
+  <p>Song with lowest rating: <%= @show_info[:lowest_rated][:title] %> with a rating of <%= @show_info[:lowest_rated][:rating] %></p>
+<% else %>
+  <p>There are no songs for this genre yet!</p>
 <% end %>

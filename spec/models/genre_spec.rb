@@ -38,5 +38,16 @@ describe Genre, type: :model do
         expect(@genre.lowest_rated).to eq(@song_2)
       end
     end
+
+    context '#show_info' do
+      it 'should deliver all info for that genres show page' do
+        expect(@genre.show_info).to eq({avg_song_rating: @genre.avg_song_rating,
+                                        highest_rated: {title: @genre.highest_rated.title,
+                                                        rating: @genre.highest_rated.rating},
+                                        lowest_rated: {title: @genre.lowest_rated.title,
+                                                        rating: @genre.lowest_rated.rating}
+                                          })
+      end
+    end
   end
 end
