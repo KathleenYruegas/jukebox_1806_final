@@ -37,7 +37,7 @@ describe "As an admin" do
     it 'should not allow a visitor to make new genre' do
       visit genres_path
 
-      expect(page).to_not have_content("Add New Genre")
+      expect(page).to_not have_content("Make New Genre!")
     end
   end
 end
