@@ -1,8 +1,4 @@
 class Admin::GenresController < Admin::BaseController
- def new
-   @genre = Genre.new()
- end
-
  def create
    @genre = Genre.create(genre_params)
    if @genre.save
@@ -10,7 +6,7 @@ class Admin::GenresController < Admin::BaseController
    else
      flash[:error] = "Genre not saved."
      render :new
-   end 
+   end
  end
 
  private

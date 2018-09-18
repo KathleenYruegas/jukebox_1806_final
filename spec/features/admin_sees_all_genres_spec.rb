@@ -14,11 +14,6 @@ describe "As an admin" do
       expect(page).to have_content(genre_1.name)
       expect(page).to have_content(genre_2.name)
       expect(page).to have_content(genre_3.name)
-
-      click_on("Add New Genre")
-
-      expect(current_path).to eq(new_admin_genre_path)
-      expect(page).to have_content("Make New Genre!")
     end
 
     it 'should be able to make a new genre' do
@@ -28,7 +23,7 @@ describe "As an admin" do
       genre_2 = Genre.create!(name: "Alternative")
       genre_3 = Genre.create!(name: "Trip Hop")
 
-      visit new_admin_genre_path
+      visit genres_path
 
       new_name = "Country"
 
@@ -43,9 +38,6 @@ describe "As an admin" do
       visit genres_path
 
       expect(page).to_not have_content("Add New Genre")
-
-      visit new_admin_genre_path
-      expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
 end
