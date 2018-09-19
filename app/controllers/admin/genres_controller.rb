@@ -2,11 +2,10 @@ class Admin::GenresController < Admin::BaseController
  def create
    @genre = Genre.create(genre_params)
    if @genre.save
-     redirect_to genres_path
    else
      flash[:error] = "Genre not saved."
-     render :new
    end
+   redirect_to genres_path
  end
 
  private

@@ -34,6 +34,20 @@ describe "As an admin" do
       expect(page).to have_content(new_name)
     end
 
+    it 'should error if genre name not present' do
+      genre_1 = Genre.create!(name: "Blues")
+      genre_2 = Genre.create!(name: "Alternative")
+      genre_3 = Genre.create!(name: "Trip Hop")
+      admin = User.create!(username: "dk", password: "test", role: 1)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+      visit genres_path
+
+      click_on("Create Genre")
+
+      expect(page).to have_content("Genre not saved.")
+    end
+
     it 'should not allow a visitor to make new genre' do
       visit genres_path
 
